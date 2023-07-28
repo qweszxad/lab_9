@@ -2,13 +2,11 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from starlette import status
-
 from app.core.db import get_session
 from app.models import Division
 from app.modules.divisions.schema import DivisionCreate, DivisionDelete, DivisionRead
 
 router = APIRouter(prefix='/division')
-
 
 @router.post('/create', status_code=status.HTTP_200_OK)
 def create_division(

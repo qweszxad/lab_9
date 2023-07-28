@@ -1,8 +1,6 @@
 from sqlalchemy import inspect, Integer, Column, String, ForeignKey
 from sqlalchemy.orm import relationship
-
 from app.core.db import Base
-
 
 class BaseMixin(Base):
     __abstract__ = True
@@ -19,7 +17,6 @@ class BaseMixin(Base):
         return {c.key: getattr(self, c.key) for c in
                 inspect(self).mapper.column_attrs}
 
-
 class Employee(BaseMixin):
     __tablename__ = "VAD_employees"
 
@@ -30,20 +27,17 @@ class Employee(BaseMixin):
     address = Column(String(100), nullable=False)
     birth_date = Column(String, nullable=False)
 
-
 class Position(BaseMixin):
     __tablename__ = "VAD_positions"
 
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
 
-
 class Division(BaseMixin):
     __tablename__ = "VAD_divisions"
 
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
-
 
 class Job(BaseMixin):
     __tablename__ = "VAD_jobs"

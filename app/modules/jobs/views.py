@@ -2,13 +2,10 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from starlette import status
-
 from app.core.db import get_session
 from app.models import Job
 from app.modules.jobs.schema import JobRead
-
 router = APIRouter(prefix='/division')
-
 
 @router.post('/employment', status_code=status.HTTP_200_OK)
 def employment(

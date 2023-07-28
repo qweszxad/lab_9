@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class JobRead(BaseModel):
     employee_id: int
     position_id: int

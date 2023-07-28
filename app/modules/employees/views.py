@@ -9,7 +9,6 @@ from app.modules.employees.schema import EmployeeCreate, EmployeeDelete, Employe
 
 router = APIRouter(prefix='/employee')
 
-
 @router.post('/create', status_code=status.HTTP_200_OK)
 def create_employee(
         name: str,
