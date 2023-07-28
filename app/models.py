@@ -18,7 +18,7 @@ class BaseMixin(Base):
                 inspect(self).mapper.column_attrs}
 
 class Employee(BaseMixin):
-    __tablename__ = "VAD_employees"
+    __tablename__ = "FVA_employees"
 
     id = Column(Integer, primary_key=True)
     last_name = Column(String(30), nullable=False)
@@ -28,23 +28,23 @@ class Employee(BaseMixin):
     birth_date = Column(String, nullable=False)
 
 class Position(BaseMixin):
-    __tablename__ = "VAD_positions"
+    __tablename__ = "FVA_positions"
 
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
 
 class Division(BaseMixin):
-    __tablename__ = "VAD_divisions"
+    __tablename__ = "FVA_divisions"
 
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
 
 class Job(BaseMixin):
-    __tablename__ = "VAD_jobs"
+    __tablename__ = "FVA_jobs"
 
     id = Column(Integer, primary_key=True)
-    employee_id = Column(Integer, ForeignKey('VAD_employees.id'))
-    position_id = Column(Integer, ForeignKey('VAD_positions.id'))
-    division_id = Column(Integer, ForeignKey('VAD_divisions.id'))
+    employee_id = Column(Integer, ForeignKey('FVA_employees.id'))
+    position_id = Column(Integer, ForeignKey('FVA_positions.id'))
+    division_id = Column(Integer, ForeignKey('FVA_divisions.id'))
     date_of_employment = Column(String, nullable=False)
     date_of_dismissal = Column(String)
